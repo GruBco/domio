@@ -1,0 +1,17 @@
+name: Domio
+version: "0.1.1"
+slug: domio
+description: Cybro PLC connectivity for Home Assistant
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: false
+host_network: true
+map:
+  - type: addon_config
+    read_only: false
+    path: /config
+options: {}
+schema: {}

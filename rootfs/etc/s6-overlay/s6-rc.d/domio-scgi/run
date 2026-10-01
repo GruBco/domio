@@ -1,0 +1,5 @@
+#!/command/with-contenv sh
+set -eu
+cd /opt/domio
+echo "[domio-scgi] Avvio scgi_server/start.py"
+exec /opt/venv/bin/python -u scgi_server/start.py

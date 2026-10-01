@@ -1,0 +1,29 @@
+# Local diagnostics and captures
+/tmp/
+*.pcap
+*.pcapng
+__pycache__/
+*.py[cod]
+*.log
+.env
+.env.*
+
+# Original distribution archive and documentation
+/CybroEdgeToolkit.zip
+/CybroEdgeToolkit/*.pdf
+/CybroEdgeToolkit/*.png
+/CybroEdgeToolkit/History.txt
+
+# Toolkit components not used by Domio
+/CybroEdgeToolkit/app/data_logger/
+/CybroEdgeToolkit/app/web_scada/
+/CybroEdgeToolkit/app/data_logger.xml
+
+# TLS material stays local; never publish private keys
+*.key
+*.csr
+/CybroEdgeToolkit/app/tls/*.crt
+
+# Local runtime configuration and state
+/domio-config/
+/domio-data/

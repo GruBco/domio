@@ -1,0 +1,5 @@
+# Only the Linux dependencies needed by scgi_server and mqtt_client.
+# Versions match the manufacturer's app/requirements.txt.
+watchdog==4.0.0
+psutil==5.9.8
+paho-mqtt==2.0.0

@@ -1,0 +1,14 @@
+[Unit]
+Description=Cybro Edge Toolkit SCGI Server
+Requires=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/bin/cybrotech/cybro_edge_toolkit/app
+ExecStart=/usr/bin/python3 /usr/bin/cybrotech/cybro_edge_toolkit/app/scgi_server/start.py
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

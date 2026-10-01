@@ -1,0 +1,13 @@
+#!/command/with-contenv sh
+set -eu
+
+mkdir -p /config /data/alc /data/log
+if [ ! -e /config/config.ini ]; then
+    if [ -f /data/config.ini ]; then
+        cp /data/config.ini /config/config.ini
+        echo "[domio] Migrata la configurazione da /data/config.ini a /config/config.ini"
+    else
+        cp /opt/domio-defaults/config.ini /config/config.ini
+        echo "[domio] Copiata la configurazione originale in /config/config.ini"
+    fi
+fi

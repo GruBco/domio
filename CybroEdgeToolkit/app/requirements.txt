@@ -1,0 +1,17 @@
+# scgi server
+watchdog==4.0.0
+WMI==1.4.9
+psutil==5.9.8
+
+# mqtt client
+paho-mqtt==2.0.0
+
+# data logger
+aiomysql==0.2.0
+
+# web scada
+Django==4.2.16
+pillow==10.4.0
+pytz==2024.1
+PyMySQL==1.1.1
+django-debug-toolbar==4.4.6

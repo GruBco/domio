@@ -1,0 +1,5 @@
+#!/command/with-contenv sh
+set -eu
+cd /opt/domio
+echo "[domio-mqtt] Avvio mqtt_client/start.py"
+exec /opt/venv/bin/python -u mqtt_client/start.py

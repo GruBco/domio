@@ -1,0 +1,15 @@
+[Unit]
+Description=Cybro Edge Toolkit MQTT Client
+Requires=network-online.target scgi_server.service
+After=network-online.target scgi_server.service
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/bin/cybrotech/cybro_edge_toolkit/app
+ExecStart=/usr/bin/python3 /usr/bin/cybrotech/cybro_edge_toolkit/app/mqtt_client/start.py
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
