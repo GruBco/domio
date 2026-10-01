@@ -138,41 +138,6 @@ The PID must change; repeat for `domio-mqtt`. Also verify that
 recreating the container with the same folder mounted. Do not start a second
 instance on the same SCGI port.
 
-## Automated smoke test
-
-Run the following from the project root in PowerShell, with Docker Desktop
-running Linux containers. **Build the image before every smoke test** so the
-test covers the current local files. The script does not build the image: it
-uses the existing tag, which could otherwise refer to an older build. Stop if
-the build fails; do not test the previous image as if it contained your changes.
-
-```powershell
-docker build -t domio:0.1.1 .
-if ($LASTEXITCODE -eq 0) {
-    ./tests/smoke.ps1 -Image 'domio:0.1.1'
-}
-```
-
-If Docker is not in `PATH`, use its executable path for both steps:
-
-```powershell
-$dockerExe = 'C:/path/to/docker.exe'
-& $dockerExe build -t domio:0.1.1 .
-if ($LASTEXITCODE -eq 0) {
-    ./tests/smoke.ps1 -Docker $dockerExe -Image 'domio:0.1.1'
-}
-```
-
-If you choose a different image tag, use the same tag for the build and the
-script's `-Image` argument.
-
-The test uses a temporary Mosquitto broker without published ports. It checks
-that both processes stay running, forces their restart, and verifies shutdown
-and INI persistence after recreating the container. It also checks default
-file creation, migration from `/data`, editing from an external container and
-precedence of the existing file in `/config`. Test containers and volumes are
-removed at the end; host networking is not used.
-
 Previously verified on Docker Desktop Linux/amd64: build, imports, service
 startup, automatic restart of both services, shutdown with exit code 0 and
 INI persistence. The aarch64 build and integration with Home Assistant and
